@@ -95,9 +95,10 @@ const ContactSection = () => {
         
         <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
           <div>
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="contact-form">
+              <h2>Envíanos un Mensaje</h2>
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium mb-1">
                   Nombre
                 </label>
                 <input
@@ -107,13 +108,12 @@ const ContactSection = () => {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-nova-gold/50 focus:border-nova-gold"
                   placeholder="Tu nombre"
                 />
               </div>
               
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+              <div className="mt-4">
+                <label htmlFor="email" className="block text-sm font-medium mb-1">
                   Email
                 </label>
                 <input
@@ -123,13 +123,12 @@ const ContactSection = () => {
                   required
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-nova-gold/50 focus:border-nova-gold"
                   placeholder="info.novatech.ia@gmail.com"
                 />
               </div>
               
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+              <div className="mt-4">
+                <label htmlFor="message" className="block text-sm font-medium mb-1">
                   Mensaje
                 </label>
                 <textarea
@@ -139,7 +138,6 @@ const ContactSection = () => {
                   required
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-nova-gold/50 focus:border-nova-gold"
                   placeholder="¿Cómo podemos ayudarte?"
                 />
               </div>
@@ -147,7 +145,6 @@ const ContactSection = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full btn-hover-effect px-6 py-3 bg-nova-blue text-white font-semibold rounded-lg shadow-md hover:bg-nova-lightblue disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
               </button>
