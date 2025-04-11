@@ -45,10 +45,16 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-white relative">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 z-0"
+        style={{ backgroundImage: "url('/lovable-uploads/1d9e991c-0a4f-4c33-a28c-9448d1fb13a0.png')" }}
+      ></div>
+      
       <div 
         ref={sectionRef}
-        className="container mx-auto px-4 section-reveal"
+        className="container mx-auto px-4 section-reveal relative z-10"
       >
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-nova-blue mb-4">Sobre Nosotros</h2>
@@ -63,7 +69,7 @@ const AboutSection = () => {
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center"
+              className="bg-gray-50 p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow text-center backdrop-blur-sm bg-white/70"
             >
               <div className="flex justify-center">{feature.icon}</div>
               <h3 className="text-xl font-semibold text-nova-blue mb-3">{feature.title}</h3>
@@ -72,7 +78,7 @@ const AboutSection = () => {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-r from-nova-blue to-nova-lightblue rounded-xl p-8 md:p-12 shadow-lg">
+        <div className="mt-16 bg-gradient-to-r from-nova-blue to-nova-lightblue rounded-xl p-8 md:p-12 shadow-lg backdrop-blur-sm">
           <div className="md:flex items-center">
             <div className="md:w-2/3 mb-6 md:mb-0 md:pr-8">
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
