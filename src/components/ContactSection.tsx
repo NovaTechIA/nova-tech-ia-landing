@@ -99,7 +99,7 @@ const ContactSection = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-nova-gold/50 focus:border-nova-gold"
-                  placeholder="tu@email.com"
+                  placeholder="info.novatech.ia@gmail.com"
                 />
               </div>
               
@@ -158,15 +158,18 @@ const ContactSection = () => {
                   <Calendar size={24} className="text-nova-gold mr-4 mt-1" />
                   <div>
                     <h4 className="font-medium text-gray-900">Agenda una llamada</h4>
-                    <p className="text-gray-600 mb-2">
+                    <p className="text-gray-600 mb-4">
                       Reserva una consulta gratuita de 30 minutos con nuestros expertos.
                     </p>
-                    {/* Placeholder for Calendly */}
-                    <div className="mt-4 border-2 border-gray-200 border-dashed rounded-lg p-6 text-center bg-gray-50">
-                      <p className="text-gray-500">Aquí iría el iframe de Calendly</p>
-                      <button className="mt-2 text-nova-blue hover:text-nova-gold font-medium">
-                        Agendar ahora
-                      </button>
+                    <div className="border-2 border-gray-200 rounded-lg overflow-hidden h-96">
+                      <iframe 
+                        src="https://calendly.com/santipalle" 
+                        width="100%" 
+                        height="100%" 
+                        frameBorder="0"
+                        title="Calendly Appointment Scheduler"
+                        className="min-h-[400px]"
+                      ></iframe>
                     </div>
                   </div>
                 </div>
