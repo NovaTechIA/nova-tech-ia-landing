@@ -9,7 +9,7 @@
   // Configuración del widget
   const config = window.ChatWidgetConfig || {
     webhook: {
-      url: 'https://novatechia-n8n.23ft3c.easypanel.host/webhook/013d79b6-5b20-4be3-8b93-bad142b58f0a',
+      url: 'https://novatechia-n8n.23ft3c.easypanel.host/webhook/a638a9c4-601c-4f8d-8d74-744b28a376d1/chat',
       route: 'general'
     },
     branding: {
