@@ -20,6 +20,42 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Widget Configuration -->
+    <script>
+      window.ChatWidgetConfig = {
+        webhook: {
+          url: 'https://novatechia-n8n.23ft3c.easypanel.host/webhook/3223efb9-b5c0-4688-9db9-5664f8f88ef6/chat',
+          route: 'general'
+        },
+        branding: {
+          logo: 'https://imgur.com/a/NM3MMZU', // Reemplazá esto con el enlace real del logo
+          name: 'Nova Tech IA',
+          welcomeText: 'Hola 👋, soy Nova, tu asistente inteligente. ¿En qué puedo ayudarte hoy?',
+          responseTimeText: 'Respondemos en pocos minutos ⚡'
+        },
+        style: {
+          ":root": {
+            "--chat--color-primary": "#0f1e51",
+            "--chat--color-primary-shade-50": "#0a173f",
+            "--chat--color-primary-shade-100": "#060f2c",
+            "--chat--color-secondary": "#d4af37",
+            "--chat--color-secondary-shade-50": "#c49e30",
+            "--chat--color-white": "#ffffff",
+            "--chat--color-light": "#f4f6fb",
+            "--chat--color-light-shade-50": "#e0e3eb",
+            "--chat--color-light-shade-100": "#c4c9d6",
+            "--chat--color-medium": "#b0b4c0",
+            "--chat--color-dark": "#0f1e51",
+            "--chat--color-disabled": "#7a7c85",
+            "--chat--color-typing": "#404040"
+          }
+        }
+      };
+    </script>
+
+    <!-- Widget Script -->
+    <script src="https://cdn.jsdelivr.net/gh/WayneSimpson/n8n-chatbot-template@ba944c3/chat-widget.js"></script>
   </head>
 
   <body>
