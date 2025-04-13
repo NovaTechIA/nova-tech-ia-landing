@@ -90,7 +90,7 @@ const ContactSection = () => {
         
         <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
           <div>
-            <form onSubmit={handleSubmit} className="contact-form">
+            <form onSubmit={handleSubmit} className="contact-form mx-0 my-0 px-0 py-0">
               <h2>Envíanos un Mensaje</h2>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-1">
