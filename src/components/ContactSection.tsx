@@ -1,8 +1,6 @@
-
 import React, { useState, useEffect, useRef, FormEvent } from 'react';
 import { Mail, Phone, Calendar } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
-
 const ContactSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
@@ -11,37 +9,36 @@ const ContactSection = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-        }
-      },
-      { threshold: 0.1 }
-    );
-
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+      }
+    }, {
+      threshold: 0.1
+    });
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
-
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
     };
   }, []);
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    const {
+      name,
+      value
+    } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
     try {
       // Usando EmailJS para enviar el email
       const response = await fetch('https://formsubmit.co/info.novatech.ia@gmail.com', {
@@ -56,13 +53,16 @@ const ContactSection = () => {
           message: formData.message
         })
       });
-      
       if (response.ok) {
         toast({
           title: "Mensaje enviado",
-          description: "Nos pondremos en contacto contigo pronto.",
+          description: "Nos pondremos en contacto contigo pronto."
         });
-        setFormData({ name: '', email: '', message: '' });
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
       } else {
         throw new Error('Error al enviar el formulario');
       }
@@ -77,13 +77,8 @@ const ContactSection = () => {
       setIsSubmitting(false);
     }
   };
-
-  return (
-    <section id="contact" className="py-20 bg-white">
-      <div 
-        ref={sectionRef}
-        className="container mx-auto px-4 section-reveal"
-      >
+  return <section id="contact" className="py-20 bg-white">
+      <div ref={sectionRef} className="container mx-auto px-4 section-reveal">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-nova-blue mb-4">Contáctanos</h2>
           <div className="w-20 h-1 bg-nova-gold mx-auto mb-6"></div>
@@ -101,51 +96,24 @@ const ContactSection = () => {
                 <label htmlFor="name" className="block text-sm font-medium mb-1">
                   Nombre
                 </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Tu nombre"
-                />
+                <input id="name" name="name" type="text" required value={formData.name} onChange={handleChange} placeholder="Tu nombre" />
               </div>
               
               <div className="mt-4">
                 <label htmlFor="email" className="block text-sm font-medium mb-1">
                   Email
                 </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="info.novatech.ia@gmail.com"
-                />
+                <input id="email" name="email" type="email" required value={formData.email} onChange={handleChange} placeholder="info.novatech.ia@gmail.com" />
               </div>
               
               <div className="mt-4">
                 <label htmlFor="message" className="block text-sm font-medium mb-1">
                   Mensaje
                 </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  required
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="¿Cómo podemos ayudarte?"
-                />
+                <textarea id="message" name="message" rows={5} required value={formData.message} onChange={handleChange} placeholder="¿Cómo podemos ayudarte?" />
               </div>
               
-              <button
-                type="submit"
-                disabled={isSubmitting}
-              >
+              <button type="submit" disabled={isSubmitting} className="py-[9px] px-[146px] my-[31px] mx-0 text-base font-semibold text-center">
                 {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
               </button>
             </form>
@@ -184,14 +152,7 @@ const ContactSection = () => {
                       Reserva una consulta gratuita de 30 minutos con nuestros expertos.
                     </p>
                     <div className="border-2 border-gray-200 rounded-lg overflow-hidden h-96">
-                      <iframe 
-                        src="https://calendly.com/santipalle" 
-                        width="100%" 
-                        height="100%" 
-                        frameBorder="0"
-                        title="Calendly Appointment Scheduler"
-                        className="min-h-[400px]"
-                      ></iframe>
+                      <iframe src="https://calendly.com/santipalle" width="100%" height="100%" frameBorder="0" title="Calendly Appointment Scheduler" className="min-h-[400px]"></iframe>
                     </div>
                   </div>
                 </div>
@@ -200,8 +161,6 @@ const ContactSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ContactSection;
